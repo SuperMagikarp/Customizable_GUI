@@ -26,9 +26,9 @@ class MyApp(App):
 
     def roll_the_dice(self, dice_type):
         d = int(dice_type.split("d")[1])
-        print(str(self.amount_of_dice[dice_type]) + dice_type + "'s have been rolled")
+        print(str(self.amount_of_dice[dice_type][0]) + dice_type + "'s have been rolled")
         total = 0
-        for i in range(self.amount_of_dice[dice_type]):
+        for i in range(self.amount_of_dice[dice_type][0]):
             result = random.randint(1, d)
             total += result
         print("Result: " + str(total))
