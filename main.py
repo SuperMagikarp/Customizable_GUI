@@ -1,8 +1,11 @@
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
 from kivy.app import App
+from discordwebhook import Discord
 
 import random
+
+import discord_webhook
 
 
 class DiceButton:
@@ -41,7 +44,7 @@ class DiceButton:
             roll_result_sum += rolled_dice
 
         # Send to Webhook
-        print(f"Result : {roll_result_sum} = {self.dice_to_roll}d{self.dice_size} {dice_rolled_results}")
+        discord.post(content=f"Result : {roll_result_sum} = {self.dice_to_roll}d{self.dice_size} {dice_rolled_results}")
 
 
 class MyApp(App):
@@ -68,4 +71,16 @@ class MyApp(App):
 
 
 if __name__ == "__main__":
+
+    web_hook_url = discord_webhook.get_webhook("config/web_hook_url.txt")
+    if not web_hook_url:
+        print("""
+            A web hook URL is needed to start this program.
+            See README.md
+            """
+            )
+        exit()
+
+    discord = Discord(url=web_hook_url) # Create the Webhook
+
     MyApp().run()

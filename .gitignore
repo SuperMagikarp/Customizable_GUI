@@ -6,6 +6,7 @@
 # VENV
 venv
 /.idea
+config
 
 # User-specific files
 *.rsuser
