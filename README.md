@@ -3,6 +3,8 @@
 This is a proof of concept for a GUI based, TTRPG dice-roller that uses Discord Webhooks to
 deliver the result of rolls into a channel on a Discord server.
 
+A continuation of [discord-example-webhook](https://github.com/riecenaidoo/discord-example-webhook)
+
 ## Requirements
 
 You'll need the following :
